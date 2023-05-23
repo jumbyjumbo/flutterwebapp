@@ -12,7 +12,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('in progress'),
+        child: Text(
+          'in progress',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
