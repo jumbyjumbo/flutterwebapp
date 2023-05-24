@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marquee/marquee.dart';
-
 import 'colors.dart';
+import 'widgets/aboutzaxorelmarquee.dart';
+import 'widgets/titlecontainer.dart';
+import 'package:neubrutalism_ui/neubrutalism_ui.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,39 +19,38 @@ class _HomeState extends State<Home> {
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Column(
-        children: [
-          //title container
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Zax0reL title
+            TitleContainer(screenWidth: screenWidth),
 
-          Container(
-            width: screenWidth,
-            decoration: BoxDecoration(
-                color: contrastPink,
-                border: BorderDirectional(
-                    bottom: BorderSide(color: primaryColor, width: 4))),
-            child: FittedBox(
-              child: Text(
-                "Zaxorel",
-                style: TextStyle(
-                  color: primaryColor,
-                ),
+            // About Zax0reL banner slideshow
+            AboutZaxorelMarquee(
+                screenWidth: screenWidth, screenHeight: screenHeight),
+
+            // row of social media icons
+            Container(
+              width: screenWidth,
+              height: screenHeight / 10,
+              child: Row(
+                children: [
+                  // github icon
+
+                  // twitter icon
+
+                  // linkedin icon
+
+                  // instagram icon
+
+                  // youtube icon
+                ],
               ),
             ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-                color: contrastPink,
-                border: BorderDirectional(
-                    bottom: BorderSide(color: primaryColor, width: 4))),
-            width: screenWidth,
-            height: screenHeight / 10,
-            child: Marquee(
-              style: TextStyle(fontSize: screenWidth / 20),
-              blankSpace: 100,
-              text: "Hello. Welcome to my website. I'm Zaxorel.",
-            ),
-          )
-        ],
+
+            // gridview of projects
+          ],
+        ),
       ),
     );
   }
