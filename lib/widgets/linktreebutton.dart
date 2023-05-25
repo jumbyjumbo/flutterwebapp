@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:website/widgets/hoveranimatecontainer.dart';
 import '../colors.dart';
 
 class LinktreeButton extends StatefulWidget {
@@ -19,56 +20,22 @@ class _LinktreeButtonState extends State<LinktreeButton> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (event) {
-        hovering(true);
-      },
-      onExit: (event) {
-        hovering(false);
-      },
-      child: AnimatedContainer(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          boxShadow: isHovered
-              ? [
-                  BoxShadow(
-                    color: primaryColor,
-                    spreadRadius: 0,
-                    blurRadius: 0,
-                    offset: Offset(3, 3),
-                  ),
-                ]
-              : [],
-        ),
-        //translation animation
-        transform: (isHovered
-            ? (Matrix4.identity()..translate(-3, -3))
-            : Matrix4.identity()),
-
-        //animation duration
-        duration: const Duration(milliseconds: 100),
-
-        //button
-        child: GestureDetector(
-          onTap: () {
-            launchUrl(Uri.parse('https://linktr.ee/zaksorel'));
-          },
-          child: Container(
-              height: widget.screenHeight / 10,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: primaryColor,
-                  width: 2,
-                ),
+    return HoverAnimateContainer(
+      child: GestureDetector(
+        onTap: () {
+          launchUrl(Uri.parse('https://linktr.ee/zaksorel'));
+        },
+        child: Container(
+            height: widget.screenHeight / 10,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: primaryColor,
+                width: 2.5,
               ),
-              child: ClipOval(child: Image.asset('zaxorel.png'))),
-        ),
+            ),
+            child: ClipOval(child: Image.asset('zaxorel.png'))),
       ),
     );
   }
-
-  void hovering(bool isHovered) => setState(() {
-        this.isHovered = isHovered;
-      });
 }
