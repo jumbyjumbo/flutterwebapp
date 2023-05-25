@@ -21,7 +21,7 @@ class TitleContainer extends StatelessWidget {
               bottom: BorderSide(color: primaryColor, width: 4))),
       child: FittedBox(
         child: Text(
-          '''Zax0rl''',
+          'Zax0rL.arxiv',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontFamily: "mondwest",
