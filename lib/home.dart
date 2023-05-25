@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/colors.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
 import 'widgets/linktreebutton.dart';
 import 'widgets/titlecontainer.dart';
