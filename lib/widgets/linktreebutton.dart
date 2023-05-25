@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/widgets/hoveranimatecontainer.dart';
-import '../colors.dart';
 
 class LinktreeButton extends StatefulWidget {
   const LinktreeButton({
@@ -21,19 +20,13 @@ class _LinktreeButtonState extends State<LinktreeButton> {
   @override
   Widget build(BuildContext context) {
     return HoverAnimateContainer(
+      shadowShape: BoxShape.circle,
       child: GestureDetector(
         onTap: () {
           launchUrl(Uri.parse('https://linktr.ee/zaksorel'));
         },
-        child: Container(
+        child: SizedBox(
             height: widget.screenHeight / 10,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: primaryColor,
-                width: 2.5,
-              ),
-            ),
             child: ClipOval(child: Image.asset('zaxorel.png'))),
       ),
     );

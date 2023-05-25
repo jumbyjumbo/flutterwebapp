@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:website/colors.dart';
+import 'package:website/widgets/hoveranimatecontainer.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
 import 'widgets/linktreebutton.dart';
 import 'widgets/titlecontainer.dart';
@@ -36,9 +38,30 @@ class _HomeState extends State<Home> {
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  SizedBox(
-                    height: 2000,
+                  Container(
+                    color: contrastBlue,
+                    height: 500,
                     width: screenWidth,
+                  ),
+                  Container(
+                    color: contrastYellow,
+                    height: 500,
+                    width: screenWidth,
+                  ),
+                  Container(
+                    color: contrastPink,
+                    height: 500,
+                    width: screenWidth,
+                    child: Center(
+                      child: HoverAnimateContainer(
+                        shadowShape: BoxShape.rectangle,
+                        child: Container(
+                          color: contrastBlue,
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

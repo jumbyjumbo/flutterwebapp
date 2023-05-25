@@ -3,8 +3,13 @@ import 'package:website/colors.dart';
 
 class HoverAnimateContainer extends StatefulWidget {
   final Widget child;
+  final shadowShape;
 
-  const HoverAnimateContainer({super.key, required this.child});
+  const HoverAnimateContainer({
+    super.key,
+    required this.child,
+    this.shadowShape,
+  });
 
   @override
   _HoverAnimateContainerState createState() => _HoverAnimateContainerState();
@@ -20,7 +25,11 @@ class _HoverAnimateContainerState extends State<HoverAnimateContainer> {
       onExit: (event) => setState(() => isHovered = false),
       child: AnimatedContainer(
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
+          border: Border.all(
+            color: primaryColor,
+            width: 2.5,
+          ),
+          shape: widget.shadowShape,
           boxShadow: isHovered
               ? [
                   BoxShadow(
