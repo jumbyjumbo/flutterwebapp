@@ -27,6 +27,7 @@ class SideMenu extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: NeueButton(
+                onTap: () {},
                 shadowShape: BoxShape.rectangle,
                 child: Container(
                   color: contrastBlue,

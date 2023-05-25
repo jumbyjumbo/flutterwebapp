@@ -5,11 +5,13 @@ import 'package:website/colors.dart';
 class NeueButton extends StatefulWidget {
   final Widget child;
   final BoxShape shadowShape;
+  final VoidCallback onTap;
 
   const NeueButton({
     super.key,
     required this.child,
     this.shadowShape = BoxShape.rectangle,
+    required this.onTap,
   });
 
   @override
@@ -22,16 +24,31 @@ class _NeueButtonState extends State<NeueButton> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
+    return
+
+        //check for hover
+        MouseRegion(
       onEnter: (event) => setState(() => isHovered = true),
       onExit: (event) => setState(() => isHovered = false),
-      child: GestureDetector(
+      child:
+          //register tap
+          GestureDetector(
+        //special action
+        onTap: () {
+          widget.onTap();
+        },
+        //press
         onTapDown: (TapDownDetails details) {
           HapticFeedback.heavyImpact();
           setState(() => isPressed = true);
         },
-        onTapUp: (TapUpDetails details) => setState(() => isPressed = false),
+        //unpress
+        onTapUp: (TapUpDetails details) {
+          setState(() => isPressed = false);
+        },
+        //unpress if cancelled
         onTapCancel: () => setState(() => isPressed = false),
+        //button decoration
         child: AnimatedContainer(
           decoration: BoxDecoration(
             border: Border.all(
@@ -56,7 +73,7 @@ class _NeueButtonState extends State<NeueButton> {
               : (isHovered
                   ? (Matrix4.identity()..translate(-4, -4))
                   : Matrix4.identity()),
-          duration: const Duration(milliseconds: 100),
+          duration: const Duration(milliseconds: 75),
           child: widget.child,
         ),
       ),

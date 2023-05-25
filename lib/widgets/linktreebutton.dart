@@ -20,15 +20,13 @@ class _LinktreeButtonState extends State<LinktreeButton> {
   @override
   Widget build(BuildContext context) {
     return NeueButton(
+      onTap: () {
+        launchUrl(Uri.parse('https://linktr.ee/zaksorel'));
+      },
       shadowShape: BoxShape.circle,
-      child: GestureDetector(
-        onTap: () {
-          launchUrl(Uri.parse('https://linktr.ee/zaksorel'));
-        },
-        child: SizedBox(
-            height: widget.screenHeight / 10,
-            child: ClipOval(child: Image.asset('zaxorel.png'))),
-      ),
+      child: SizedBox(
+          height: widget.screenHeight / 10,
+          child: ClipOval(child: Image.asset('zaxorel.png'))),
     );
   }
 }
