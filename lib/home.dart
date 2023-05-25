@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:website/colors.dart';
-import 'package:website/widgets/hoveranimatecontainer.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
 import 'widgets/linktreebutton.dart';
+import 'widgets/sidemenu.dart';
 import 'widgets/titlecontainer.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
@@ -30,7 +30,8 @@ class _HomeState extends State<Home> {
         slivers: [
           SliverList(
               delegate: SliverChildListDelegate([
-            TitleContainer(screenWidth: screenWidth),
+            TitleContainer(
+                screenWidth: screenWidth, screenHeight: screenHeight),
           ])),
           SliverStickyHeader(
             header: AboutZaxorelMarquee(
@@ -38,31 +39,31 @@ class _HomeState extends State<Home> {
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Container(
-                    color: contrastBlue,
-                    height: 500,
+                  SizedBox(
+                    height: screenHeight * 0.9,
                     width: screenWidth,
-                  ),
-                  Container(
-                    color: contrastYellow,
-                    height: 500,
-                    width: screenWidth,
-                  ),
-                  Container(
-                    color: contrastPink,
-                    height: 500,
-                    width: screenWidth,
-                    child: Center(
-                      child: HoverAnimateContainer(
-                        shadowShape: BoxShape.rectangle,
-                        child: Container(
-                          color: contrastBlue,
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
+                    child: Row(
+                      children: [
+                        //side menu
+                        SideMenu(screenHeight: screenHeight),
+
+                        //main screen
+                        SizedBox(
+                          height: screenHeight * 0.9,
+                          width: screenWidth - screenHeight / 10,
+                          child: SingleChildScrollView(
+                            child: Text(
+                                '''"Our mission is to incubate and empower the next generation of technological innovators and disruptors. Using cutting-edge tools and AI, we aim to foster an ecosystem where young minds are equipped to explore, design, and engineer transformative technological solutions. With an unwavering focus on questioning the established norms, we strive to democratize access to resources and knowledge, enabling our young visionaries to engineer technologies that will revolutionize our society and lifestyles. As we stand on the cusp of technological evolution, we see every question as an opportunity to build the future."''',
+                                style: TextStyle(
+                                  fontFamily: "bit",
+                                  fontSize: 100,
+                                  color: primaryColor,
+                                )),
+                          ),
+                        )
+                      ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

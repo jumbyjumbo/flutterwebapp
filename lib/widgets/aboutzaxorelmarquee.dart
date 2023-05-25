@@ -24,7 +24,10 @@ class AboutZaxorelMarquee extends StatelessWidget {
       height: screenHeight / 10,
       child: Marquee(
         startPadding: screenWidth,
-        style: TextStyle(fontSize: screenHeight / 10),
+        style: TextStyle(
+            fontSize: screenHeight / 10,
+            fontWeight: FontWeight.bold,
+            fontFamily: "bit"),
         blankSpace: screenWidth,
         velocity: 400,
         text:

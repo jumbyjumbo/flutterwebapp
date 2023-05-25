@@ -5,9 +5,11 @@ class TitleContainer extends StatelessWidget {
   const TitleContainer({
     super.key,
     required this.screenWidth,
+    required this.screenHeight,
   });
 
   final double screenWidth;
+  final double screenHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +20,11 @@ class TitleContainer extends StatelessWidget {
           border: BorderDirectional(
               bottom: BorderSide(color: primaryColor, width: 4))),
       child: FittedBox(
-        fit: BoxFit.fitWidth,
         child: Text(
-          "Zax0rel",
+          '''Zax0rl''',
           style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontFamily: "mondwest",
             color: primaryColor,
           ),
         ),

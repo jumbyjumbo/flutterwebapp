@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:website/widgets/hoveranimatecontainer.dart';
+import 'package:website/widgets/neuebutton.dart';
 
 class LinktreeButton extends StatefulWidget {
   const LinktreeButton({
@@ -19,7 +19,7 @@ class _LinktreeButtonState extends State<LinktreeButton> {
 
   @override
   Widget build(BuildContext context) {
-    return HoverAnimateContainer(
+    return NeueButton(
       shadowShape: BoxShape.circle,
       child: GestureDetector(
         onTap: () {

@@ -50,9 +50,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/zaxorel.png
-    - assets/github.png
-    - assets/github_white.png
+    - grid.png
+    - zaxorel.png
+    - github.png
+    - github_white.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -64,6 +65,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: PPNeueBit
+    - family: bit
       fonts:
         - asset: fonts/PPNeueBit-Bold.otf
+
+    - family: mondwest
+      fonts:
+        - asset: fonts/PPMondwest-Regular.otf
