@@ -50,10 +50,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - grid.png
-    - zaxorel.png
-    - github.png
-    - github_white.png
+    - assets/grid.png
+    - assets/zaxorel.png
+    - assets/github.png
+    - assets/github_white.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
