@@ -20,7 +20,7 @@ class TitleContainer extends StatelessWidget {
       child: FittedBox(
         fit: BoxFit.fitWidth,
         child: Text(
-          "Zax0reL",
+          "Zax0rel",
           style: TextStyle(
             color: primaryColor,
           ),
