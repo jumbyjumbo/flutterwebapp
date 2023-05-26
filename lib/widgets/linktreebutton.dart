@@ -25,7 +25,8 @@ class _LinktreeButtonState extends State<LinktreeButton> {
       },
       shadowShape: BoxShape.circle,
       child: SizedBox(
-          height: widget.screenHeight / 10,
+          width: widget.screenHeight / 12,
+          height: widget.screenHeight / 12,
           child: ClipOval(child: Image.asset('zaxorel.png'))),
     );
   }
