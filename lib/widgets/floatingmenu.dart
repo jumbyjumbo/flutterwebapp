@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/utilities/colors.dart';
 import 'package:website/widgets/linktreebutton.dart';
-import 'package:website/widgets/neuebutton.dart';
-
 import 'backtotopbutton.dart';
 
 class FloatingMenu extends StatelessWidget {
@@ -21,15 +19,16 @@ class FloatingMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NeueButton(
-      color: contrastGreen,
+    return Container(
       height: height,
       width: width,
-      onTap: () {},
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(width: 10),
+          const SizedBox(width: 30),
+          //linktree button
+          const LinktreeButton(),
+          const Spacer(),
           //back to top button
           BackToTop(
               onTopButtonPressed: onTopButtonPressed,
@@ -37,7 +36,6 @@ class FloatingMenu extends StatelessWidget {
           const Spacer(),
           //linktree button
           const LinktreeButton(),
-          const SizedBox(width: 10),
         ],
       ),
     );

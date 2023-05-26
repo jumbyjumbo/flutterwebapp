@@ -40,10 +40,11 @@ class _HomeState extends State<Home> {
 
     //app structure
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       //floating linktree button
       floatingActionButton: FloatingMenu(
         height: screenHeight / 10,
-        width: screenWidth / 2,
+        width: screenWidth - screenHeight / 10,
         scrollController: _mainScreenScrollController,
       ),
 

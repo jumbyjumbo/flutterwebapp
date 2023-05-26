@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:website/utilities/colors.dart';
 
+//shadow box presets
+enum ShadowBoxPreset {
+  top,
+  topLeft,
+  topRight,
+  bottom,
+}
+
 class NeueButton extends StatefulWidget {
   final Widget child;
   final VoidCallback onTap;
@@ -9,6 +17,7 @@ class NeueButton extends StatefulWidget {
   final Color? color;
   final double height;
   final double width;
+  final ShadowBoxPreset shadowBoxPreset;
 
   const NeueButton({
     super.key,
@@ -16,8 +25,9 @@ class NeueButton extends StatefulWidget {
     required this.onTap,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.color,
-    this.height = 60,
-    this.width = 60,
+    this.height = 75,
+    this.width = 75,
+    this.shadowBoxPreset = ShadowBoxPreset.top,
   });
 
   @override
@@ -30,6 +40,28 @@ class _NeueButtonState extends State<NeueButton> {
 
   @override
   Widget build(BuildContext context) {
+    Offset shadowOffset;
+    Matrix4 hoverTransform;
+
+    switch (widget.shadowBoxPreset) {
+      case ShadowBoxPreset.top:
+        shadowOffset = const Offset(0, 4);
+        hoverTransform = Matrix4.identity()..translate(0, -4);
+        break;
+      case ShadowBoxPreset.topLeft:
+        shadowOffset = const Offset(4, 4);
+        hoverTransform = Matrix4.identity()..translate(-4, -4);
+        break;
+      case ShadowBoxPreset.topRight:
+        shadowOffset = const Offset(-4, 4);
+        hoverTransform = Matrix4.identity()..translate(4, -4);
+        break;
+      case ShadowBoxPreset.bottom:
+        shadowOffset = const Offset(0, -4);
+        hoverTransform = Matrix4.identity()..translate(0, 4);
+        break;
+    }
+
     return
 
         //check for hover
@@ -58,6 +90,8 @@ class _NeueButtonState extends State<NeueButton> {
         child: AnimatedContainer(
           height: widget.height,
           width: widget.width,
+
+          //color and border shape
           decoration: BoxDecoration(
             color: widget.color ??
                 contrastBlue, // use primaryColor if color is null
@@ -72,17 +106,14 @@ class _NeueButtonState extends State<NeueButton> {
                       color: primaryColor,
                       spreadRadius: 0,
                       blurRadius: 0,
-                      offset:
-                          isPressed ? const Offset(0, 0) : const Offset(4, 4),
+                      offset: isPressed ? const Offset(0, 0) : shadowOffset,
                     ),
                   ]
                 : [],
           ),
           transform: isPressed
               ? Matrix4.identity()
-              : (isHovered
-                  ? (Matrix4.identity()..translate(-4, -4))
-                  : Matrix4.identity()),
+              : (isHovered ? hoverTransform : Matrix4.identity()),
           duration: const Duration(milliseconds: 80),
           child: widget.child,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/utilities/colors.dart';
 
 import 'neuebutton.dart';
 
@@ -15,6 +16,8 @@ class BackToTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NeueButton(
+      color: contrastYellow,
+      shadowBoxPreset: ShadowBoxPreset.top,
       onTap: onTopButtonPressed ??
           () {
             scrollController.animateTo(

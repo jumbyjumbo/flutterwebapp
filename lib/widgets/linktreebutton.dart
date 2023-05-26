@@ -16,6 +16,7 @@ class _LinktreeButtonState extends State<LinktreeButton> {
   @override
   Widget build(BuildContext context) {
     return NeueButton(
+      shadowBoxPreset: ShadowBoxPreset.topRight,
       color: contrastPink,
       borderRadius: const BorderRadius.all(Radius.circular(15)),
       onTap: () {

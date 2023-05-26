@@ -31,6 +31,7 @@ class SideMenu extends StatelessWidget {
 
               //each buton
               child: NeueButton(
+                shadowBoxPreset: ShadowBoxPreset.topLeft,
                 onTap: () {
                   onMenuPressed(index);
                 },

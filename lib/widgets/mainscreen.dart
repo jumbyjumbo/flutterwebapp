@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import 'footer.dart';
+//import 'footer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen(
@@ -19,9 +19,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  //control scrolling
-  final ScrollController _scrollController = ScrollController();
-
   //child widget to be displayed
   late Widget _child;
   @override
