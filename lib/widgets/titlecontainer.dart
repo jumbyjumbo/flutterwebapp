@@ -6,10 +6,12 @@ class TitleContainer extends StatelessWidget {
     super.key,
     required this.screenWidth,
     required this.screenHeight,
+    required this.text,
   });
 
   final double screenWidth;
   final double screenHeight;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,16 @@ class TitleContainer extends StatelessWidget {
           color: contrastPink,
           border: BorderDirectional(
               bottom: BorderSide(color: primaryColor, width: 4))),
-      child: FittedBox(
-        child: Text(
-          'Zax0rL.arxiv',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontFamily: "mondwest",
-            color: primaryColor,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FittedBox(
+          child: Text(
+            text,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: "bubble",
+              color: primaryColor,
+            ),
           ),
         ),
       ),

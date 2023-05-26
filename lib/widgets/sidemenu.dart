@@ -16,7 +16,6 @@ class SideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: secondaryColor,
           border: BorderDirectional(
               end: BorderSide(color: primaryColor, width: 4))),
       width: screenHeight / 10,

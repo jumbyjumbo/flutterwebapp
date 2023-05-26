@@ -7,6 +7,7 @@ import 'widgets/sidemenu.dart';
 import 'widgets/titlecontainer.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
+//website homepage
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -15,10 +16,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedIndex = 0;
-
+  //get the list of menu options' widgets
   final List<Widget> pageOptions = getPageOptions();
+
   //select the tapped button's index
+  int _selectedIndex = 0;
   void _handleMenuSelection(int index) {
     setState(() {
       if (index < pageOptions.length) {
@@ -29,29 +31,46 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    //get screen size for responsive design
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
 
+    //app structure
     return Scaffold(
       //floating linktree button
       floatingActionButton: LinktreeButton(
         screenHeight: screenHeight,
       ),
 
-      //page layout
+      //main page layout
       body: ScrollConfiguration(
+        //hide scrollbar
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        child: CustomScrollView(
+        child:
+            //make website scrollable
+            CustomScrollView(
           slivers: [
+            //column of containers/slivers
             SliverList(
-                delegate: SliverChildListDelegate([
+                delegate:
+                    //website title container
+                    SliverChildListDelegate([
+              //website title widget
               TitleContainer(
-                  screenWidth: screenWidth, screenHeight: screenHeight),
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+                text: 'Zax0rL.arxiv',
+              ),
             ])),
+            //main content of website
             SliverStickyHeader(
+              //make the marquee sticky
               header: AboutZaxorelMarquee(
                   screenWidth: screenWidth, screenHeight: screenHeight),
+
+              //body of website
               sliver: SliverList(
+                //list of containers for rest of website
                 delegate: SliverChildListDelegate(
                   [
                     //body
@@ -74,7 +93,7 @@ class _HomeState extends State<Home> {
                           )
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

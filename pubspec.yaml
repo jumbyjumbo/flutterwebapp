@@ -72,3 +72,11 @@ flutter:
     - family: mondwest
       fonts:
         - asset: fonts/PPMondwest-Regular.otf
+
+    - family: wayfarer
+      fonts:
+        - asset: fonts/WayfarersToyBoxRegular-gxxER.ttf
+
+    - family: bubble
+      fonts:
+        - asset: fonts/bubble.ttf
