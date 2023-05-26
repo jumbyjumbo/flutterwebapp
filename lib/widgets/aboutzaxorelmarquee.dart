@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:marquee/marquee.dart';
-import '../colors.dart';
+import '../utilities/colors.dart';
 import '../utilities/calcage.dart';
 
 class AboutZaxorelMarquee extends StatelessWidget {

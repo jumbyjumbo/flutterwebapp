@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import '../colors.dart';
+import '../utilities/colors.dart';
 
 class TitleContainer extends StatelessWidget {
   const TitleContainer({

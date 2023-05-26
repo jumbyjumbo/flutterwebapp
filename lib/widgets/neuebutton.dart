@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:website/colors.dart';
+import 'package:website/utilities/colors.dart';
 
 class NeueButton extends StatefulWidget {
   final Widget child;

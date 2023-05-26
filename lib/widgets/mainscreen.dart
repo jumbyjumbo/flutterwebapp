@@ -1,6 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:website/colors.dart';
-import 'package:website/widgets/neuebutton.dart';
 
 import 'footer.dart';
 
@@ -19,8 +17,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  late Widget _child;
+  //control scrolling
+  final ScrollController _scrollController = ScrollController();
 
+  //child widget to be displayed
+  late Widget _child;
   @override
   void initState() {
     super.initState();
@@ -38,13 +39,26 @@ class _MainScreenState extends State<MainScreen> {
     return SizedBox(
       height: widget.screenHeight * 0.9,
       width: widget.screenWidth - widget.screenHeight / 10,
+
+      //hide scrollbar
       child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+
+        //scrollable column
         child: SingleChildScrollView(
+          controller: _scrollController,
           child: Column(
             children: [
               _child,
-              const Footer(),
+              Footer(
+                onTopButtonPressed: () {
+                  _scrollController.animateTo(
+                    0.0,
+                    curve: Curves.easeInOut,
+                    duration: const Duration(milliseconds: 100),
+                  );
+                },
+              ),
             ],
           ),
         ),
