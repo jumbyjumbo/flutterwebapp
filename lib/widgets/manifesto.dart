@@ -39,7 +39,9 @@ class Manifesto extends StatelessWidget {
           TextSpan(text: '"Network States"\n', style: TextStyle(fontSize: 150)),
 
           //P4
-          TextSpan(text: '\n\n'),
+          TextSpan(
+              text:
+                  'A network state is a highly aligned online community with a capacity for collective action that crowdfunds territory around the world and eventually gains diplomatic recognition from pre-existing states.\nA network state is a social network with a moral innovation, a sense of national consciousness, a recognized founder, a capacity for collective action, an in-person level of civility, an integrated cryptocurrency, a consensual government limited by a social smart contract, an archipelago of crowdfunded physical territories, a virtual capital, and an on-chain census that proves a large enough population, income, and real-estate footprint to attain a measure of diplomatic recognition.\n\n'),
 
           //H5
           TextSpan(text: '"Intelligence"\n', style: TextStyle(fontSize: 150)),

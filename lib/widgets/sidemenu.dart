@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../colors.dart';
 import 'neuebutton.dart';
 
@@ -7,9 +6,11 @@ class SideMenu extends StatelessWidget {
   const SideMenu({
     super.key,
     required this.screenHeight,
+    required this.onMenuPressed,
   });
 
   final double screenHeight;
+  final Function(int) onMenuPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,9 @@ class SideMenu extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: NeueButton(
-                onTap: () {},
+                onTap: () {
+                  onMenuPressed(index);
+                },
                 shadowShape: BoxShape.rectangle,
                 child: Container(
                   color: contrastBlue,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:website/widgets/manifesto.dart';
 import 'package:website/widgets/mainscreen.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
 import 'widgets/linktreebutton.dart';
+import 'utilities/pageoptions.dart';
 import 'widgets/sidemenu.dart';
 import 'widgets/titlecontainer.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
@@ -15,6 +15,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+
+  final List<Widget> pageOptions = getPageOptions();
+  //select the tapped button's index
+  void _handleMenuSelection(int index) {
+    setState(() {
+      if (index < pageOptions.length) {
+        _selectedIndex = index;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -49,13 +61,16 @@ class _HomeState extends State<Home> {
                       child: Row(
                         children: [
                           //side menu
-                          SideMenu(screenHeight: screenHeight),
+                          SideMenu(
+                            onMenuPressed: _handleMenuSelection,
+                            screenHeight: screenHeight,
+                          ),
 
                           //main screen
                           MainScreen(
                             screenHeight: screenHeight,
                             screenWidth: screenWidth,
-                            child: const Manifesto(),
+                            child: pageOptions[_selectedIndex],
                           )
                         ],
                       ),
