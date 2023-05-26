@@ -36,9 +36,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.screenHeight * 0.9,
       width: widget.screenWidth - widget.screenHeight / 10,
-
       //hide scrollbar
       child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -50,15 +48,6 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               _child,
               //footer of main screen
-              // Footer(
-              //   onTopButtonPressed: () {
-              //     _scrollController.animateTo(
-              //       0.0,
-              //       curve: Curves.easeInOut,
-              //       duration: const Duration(milliseconds: 100),
-              //     );
-              //   },
-              // ),
             ],
           ),
         ),

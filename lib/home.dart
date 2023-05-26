@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:website/widgets/floatingmenu.dart';
 import 'package:website/widgets/mainscreen.dart';
+import 'utilities/colors.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
 import 'utilities/pageoptions.dart';
 import 'widgets/sidemenu.dart';
-import 'widgets/titlecontainer.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 //website homepage
@@ -24,10 +24,17 @@ class _HomeState extends State<Home> {
 
   //select the tapped button's index
   int _selectedIndex = 0;
+  int _previousIndex = 999;
   void _handleMenuSelection(int index) {
     setState(() {
       if (index < pageOptions.length) {
+        _previousIndex = _selectedIndex;
         _selectedIndex = index;
+        _mainScreenScrollController.animateTo(
+          0.0,
+          curve: Curves.easeInOut,
+          duration: const Duration(milliseconds: 100),
+        );
       }
     });
   }
@@ -57,23 +64,40 @@ class _HomeState extends State<Home> {
             CustomScrollView(
           slivers: [
             //column of containers/slivers
-            SliverList(
-                delegate:
-                    //website title container
-                    SliverChildListDelegate([
-              //website title widget
-              TitleContainer(
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
-                text: 'Zax0rL.arxiv',
+            SliverAppBar(
+              backgroundColor: contrastPink,
+              expandedHeight: 200,
+              floating: true,
+              pinned: false,
+              snap: true,
+              flexibleSpace:
+                  //website title widget
+                  Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    "Zax0rl.arxiv",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "bubble",
+                      color: primaryColor,
+                      //fontSize: ,
+                    ),
+                  ),
+                ),
               ),
-            ])),
+            ),
 
             //main content of website
             SliverStickyHeader(
               //make the marquee sticky
               header: AboutZaxorelMarquee(
-                  screenWidth: screenWidth, screenHeight: screenHeight),
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+                height: screenHeight * 0.07,
+                width: screenWidth,
+              ),
 
               //body of website
               sliver: SliverList(
@@ -82,7 +106,7 @@ class _HomeState extends State<Home> {
                   [
                     //body
                     SizedBox(
-                      height: screenHeight * 0.9,
+                      height: screenHeight * 0.93,
                       width: screenWidth,
                       child: Row(
                         children: [

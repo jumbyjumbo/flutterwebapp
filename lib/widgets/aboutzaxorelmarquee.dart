@@ -8,10 +8,16 @@ class AboutZaxorelMarquee extends StatelessWidget {
     super.key,
     required this.screenWidth,
     required this.screenHeight,
+    required this.height,
+    required this.width,
+    this.fontSize = 50,
   });
 
+  final double height;
+  final double width;
   final double screenWidth;
   final double screenHeight;
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +28,17 @@ class AboutZaxorelMarquee extends StatelessWidget {
       decoration: BoxDecoration(
           color: contrastYellow,
           border: BorderDirectional(
-              bottom: BorderSide(color: primaryColor, width: 4))),
-      width: screenWidth,
-      height: screenHeight / 10,
+              bottom: BorderSide(color: primaryColor, width: 4),
+              top: BorderSide(color: primaryColor, width: 4))),
+      width: width,
+      height: height,
       child: Marquee(
         startPadding: screenWidth,
         style: TextStyle(
-            fontSize: screenHeight / 10,
-            fontWeight: FontWeight.bold,
-            fontFamily: "bit"),
+          fontWeight: FontWeight.bold,
+          fontFamily: "bit",
+          fontSize: fontSize,
+        ),
         blankSpace: screenWidth,
         velocity: 350,
         text:

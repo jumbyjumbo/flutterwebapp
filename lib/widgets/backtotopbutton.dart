@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:website/utilities/colors.dart';
-
 import 'neuebutton.dart';
 
-class BackToTop extends StatelessWidget {
-  const BackToTop({
+class BackToTopButton extends StatelessWidget {
+  const BackToTopButton({
     super.key,
     required this.onTopButtonPressed,
     required this.scrollController,
@@ -27,9 +26,15 @@ class BackToTop extends StatelessWidget {
             );
           },
       //back to top icon
-      child: const FittedBox(
-        child: Icon(
-          Icons.arrow_upward_rounded,
+      child: const Padding(
+        padding: EdgeInsets.all(12.0),
+        child: FittedBox(
+          child: Text("back to top",
+              style: TextStyle(
+                wordSpacing: -10,
+                fontWeight: FontWeight.bold,
+                fontFamily: "bubble",
+              )),
         ),
       ),
     );

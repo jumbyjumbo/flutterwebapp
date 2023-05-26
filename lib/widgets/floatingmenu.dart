@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:website/utilities/colors.dart';
 import 'package:website/widgets/linktreebutton.dart';
 import 'backtotopbutton.dart';
+import 'previouspagebutton.dart';
 
 class FloatingMenu extends StatelessWidget {
   const FloatingMenu({
@@ -19,7 +19,7 @@ class FloatingMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: height,
       width: width,
       child: Row(
@@ -27,12 +27,16 @@ class FloatingMenu extends StatelessWidget {
         children: [
           const SizedBox(width: 30),
           //linktree button
-          const LinktreeButton(),
+          const PreviousPageButton(),
           const Spacer(),
           //back to top button
-          BackToTop(
-              onTopButtonPressed: onTopButtonPressed,
-              scrollController: scrollController),
+          SizedBox(
+            width: 180,
+            height: 50,
+            child: BackToTopButton(
+                onTopButtonPressed: onTopButtonPressed,
+                scrollController: scrollController),
+          ),
           const Spacer(),
           //linktree button
           const LinktreeButton(),
