@@ -23,20 +23,25 @@ class SideMenu extends StatelessWidget {
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         child: GridView.count(
           crossAxisCount: 1,
+
+          //make 100 buttons
           children: List.generate(100, (index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
+
+              //each buton
               child: NeueButton(
                 onTap: () {
                   onMenuPressed(index);
                 },
-                shadowShape: BoxShape.rectangle,
-                child: Container(
-                  color: contrastBlue,
-                  child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(2),
+                  child: FittedBox(
                     child: Text(
+                      textAlign: TextAlign.center,
                       '$index',
-                      style: const TextStyle(fontFamily: "bit", fontSize: 30),
+                      style: const TextStyle(
+                          fontFamily: "bit", fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

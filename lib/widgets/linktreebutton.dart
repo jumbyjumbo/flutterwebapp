@@ -6,23 +6,16 @@ import 'package:website/widgets/neuebutton.dart';
 class LinktreeButton extends StatefulWidget {
   const LinktreeButton({
     super.key,
-    required this.screenHeight,
   });
-
-  final double screenHeight;
 
   @override
   State<LinktreeButton> createState() => _LinktreeButtonState();
 }
 
 class _LinktreeButtonState extends State<LinktreeButton> {
-  bool isHovered = false;
-
   @override
   Widget build(BuildContext context) {
     return NeueButton(
-      width: widget.screenHeight / 12,
-      height: widget.screenHeight / 12,
       color: contrastPink,
       borderRadius: const BorderRadius.all(Radius.circular(15)),
       onTap: () {

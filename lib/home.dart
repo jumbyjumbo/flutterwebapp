@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:website/widgets/floatingmenu.dart';
 import 'package:website/widgets/mainscreen.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
-import 'widgets/linktreebutton.dart';
 import 'utilities/pageoptions.dart';
 import 'widgets/sidemenu.dart';
 import 'widgets/titlecontainer.dart';
@@ -16,6 +16,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // main screen ScrollController
+  final ScrollController _mainScreenScrollController = ScrollController();
+
   //get the list of menu options' widgets
   final List<Widget> pageOptions = getPageOptions();
 
@@ -32,14 +35,16 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     //get screen size for responsive design
-    var screenHeight = MediaQuery.of(context).size.height;
-    var screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
 
     //app structure
     return Scaffold(
       //floating linktree button
-      floatingActionButton: LinktreeButton(
-        screenHeight: screenHeight,
+      floatingActionButton: FloatingMenu(
+        height: screenHeight / 10,
+        width: screenWidth / 2,
+        scrollController: _mainScreenScrollController,
       ),
 
       //main page layout
@@ -62,6 +67,7 @@ class _HomeState extends State<Home> {
                 text: 'Zax0rL.arxiv',
               ),
             ])),
+
             //main content of website
             SliverStickyHeader(
               //make the marquee sticky
@@ -84,13 +90,13 @@ class _HomeState extends State<Home> {
                             onMenuPressed: _handleMenuSelection,
                             screenHeight: screenHeight,
                           ),
-
-                          //main screen
+                          //main display
                           MainScreen(
                             screenHeight: screenHeight,
                             screenWidth: screenWidth,
+                            scrollController: _mainScreenScrollController,
                             child: pageOptions[_selectedIndex],
-                          )
+                          ),
                         ],
                       ),
                     ),

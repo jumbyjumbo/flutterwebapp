@@ -7,10 +7,12 @@ class MainScreen extends StatefulWidget {
       {super.key,
       required this.child,
       required this.screenHeight,
-      required this.screenWidth});
+      required this.screenWidth,
+      required this.scrollController});
   final Widget child;
   final double screenHeight;
   final double screenWidth;
+  final ScrollController scrollController;
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -46,19 +48,20 @@ class _MainScreenState extends State<MainScreen> {
 
         //scrollable column
         child: SingleChildScrollView(
-          controller: _scrollController,
+          controller: widget.scrollController,
           child: Column(
             children: [
               _child,
-              Footer(
-                onTopButtonPressed: () {
-                  _scrollController.animateTo(
-                    0.0,
-                    curve: Curves.easeInOut,
-                    duration: const Duration(milliseconds: 100),
-                  );
-                },
-              ),
+              //footer of main screen
+              // Footer(
+              //   onTopButtonPressed: () {
+              //     _scrollController.animateTo(
+              //       0.0,
+              //       curve: Curves.easeInOut,
+              //       duration: const Duration(milliseconds: 100),
+              //     );
+              //   },
+              // ),
             ],
           ),
         ),

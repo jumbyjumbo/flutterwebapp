@@ -4,7 +4,6 @@ import 'package:website/utilities/colors.dart';
 
 class NeueButton extends StatefulWidget {
   final Widget child;
-  final BoxShape shadowShape;
   final VoidCallback onTap;
   final BorderRadius borderRadius;
   final Color? color;
@@ -14,7 +13,6 @@ class NeueButton extends StatefulWidget {
   const NeueButton({
     super.key,
     required this.child,
-    this.shadowShape = BoxShape.rectangle,
     required this.onTap,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.color,
@@ -68,7 +66,6 @@ class _NeueButtonState extends State<NeueButton> {
               color: primaryColor,
               width: 2.5,
             ),
-            shape: widget.shadowShape,
             boxShadow: isHovered || isPressed
                 ? [
                     BoxShadow(
