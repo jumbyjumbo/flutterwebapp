@@ -16,7 +16,6 @@ class _PreviousPageButtonState extends State<PreviousPageButton> {
   Widget build(BuildContext context) {
     return NeueButton(
       shadowBoxPreset: ShadowBoxPreset.topLeft,
-      color: contrastPink,
       borderRadius: const BorderRadius.all(Radius.circular(15)),
       onTap: () {
         ;

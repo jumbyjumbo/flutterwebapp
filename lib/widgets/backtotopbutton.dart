@@ -15,7 +15,6 @@ class BackToTopButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NeueButton(
-      color: contrastYellow,
       shadowBoxPreset: ShadowBoxPreset.top,
       onTap: onTopButtonPressed ??
           () {

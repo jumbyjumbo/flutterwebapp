@@ -11,6 +11,7 @@ class AboutZaxorelMarquee extends StatelessWidget {
     required this.height,
     required this.width,
     this.fontSize = 50,
+    this.color,
   });
 
   final double height;
@@ -18,6 +19,7 @@ class AboutZaxorelMarquee extends StatelessWidget {
   final double screenWidth;
   final double screenHeight;
   final double fontSize;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class AboutZaxorelMarquee extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-          color: contrastYellow,
+          color: color,
           border: BorderDirectional(
               bottom: BorderSide(color: primaryColor, width: 4),
               top: BorderSide(color: primaryColor, width: 4))),

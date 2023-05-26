@@ -18,6 +18,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   // main screen ScrollController
   final ScrollController _mainScreenScrollController = ScrollController();
+  // source ScrollController
+  final ScrollController _sourceScrollController = ScrollController();
 
   //get the list of menu options' widgets
   final List<Widget> pageOptions = getPageOptions();
@@ -62,17 +64,13 @@ class _HomeState extends State<Home> {
         child:
             //make website scrollable
             CustomScrollView(
+          controller: _sourceScrollController,
           slivers: [
             //column of containers/slivers
-            SliverAppBar(
-              backgroundColor: contrastPink,
-              expandedHeight: 200,
-              floating: true,
-              pinned: false,
-              snap: true,
-              flexibleSpace:
-                  //website title widget
-                  Padding(
+            //website title widget
+            SliverList(
+                delegate: SliverChildListDelegate([
+              Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: FittedBox(
                   fit: BoxFit.contain,
@@ -87,7 +85,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-            ),
+            ])),
 
             //main content of website
             SliverStickyHeader(
@@ -125,6 +123,7 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
+                    //next body
                   ],
                 ),
               ),

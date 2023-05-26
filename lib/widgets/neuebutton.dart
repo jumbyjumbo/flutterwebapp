@@ -93,8 +93,7 @@ class _NeueButtonState extends State<NeueButton> {
 
           //color and border shape
           decoration: BoxDecoration(
-            color: widget.color ??
-                contrastBlue, // use primaryColor if color is null
+            color: widget.color ?? backgroundColor,
             borderRadius: widget.borderRadius,
             border: Border.all(
               color: primaryColor,
