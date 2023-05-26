@@ -22,7 +22,7 @@ class TitleContainer extends StatelessWidget {
           border: BorderDirectional(
               bottom: BorderSide(color: primaryColor, width: 4))),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: FittedBox(
           child: Text(
             text,

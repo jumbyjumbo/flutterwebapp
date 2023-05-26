@@ -1,4 +1,8 @@
 import 'package:flutter/widgets.dart';
+import 'package:website/colors.dart';
+import 'package:website/widgets/neuebutton.dart';
+
+import 'footer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen(
@@ -37,7 +41,12 @@ class _MainScreenState extends State<MainScreen> {
       child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         child: SingleChildScrollView(
-          child: _child,
+          child: Column(
+            children: [
+              _child,
+              const Footer(),
+            ],
+          ),
         ),
       ),
     );
