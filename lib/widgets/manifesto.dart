@@ -42,9 +42,13 @@ class Manifesto extends StatelessWidget {
                 ),
                 children: <TextSpan>[
                   //H1
-                  const TextSpan(
+                  TextSpan(
                       text: '\n"Singularity"\n',
-                      style: TextStyle(fontSize: 50)),
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width > 600
+                            ? headingSize
+                            : headingSize * 0.75,
+                      )),
 
                   //P1
                   const TextSpan(text: '\n\n'),

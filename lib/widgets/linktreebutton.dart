@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:website/utilities/colors.dart';
 import 'package:website/widgets/neuebutton.dart';
 
 class LinktreeButton extends StatefulWidget {
@@ -20,14 +21,19 @@ class _LinktreeButtonState extends State<LinktreeButton> {
   @override
   Widget build(BuildContext context) {
     return NeueButton(
+      width: widget.screenHeight / 12,
+      height: widget.screenHeight / 12,
+      color: contrastPink,
+      borderRadius: const BorderRadius.all(Radius.circular(15)),
       onTap: () {
         launchUrl(Uri.parse('https://linktr.ee/zaksorel'));
       },
-      shadowShape: BoxShape.circle,
-      child: SizedBox(
-          width: widget.screenHeight / 12,
-          height: widget.screenHeight / 12,
-          child: ClipOval(child: Image.asset('zaxorel.png'))),
+      child: const FittedBox(
+        alignment: Alignment.center,
+        child: Icon(
+          Icons.north_east_rounded,
+        ),
+      ),
     );
   }
 }
