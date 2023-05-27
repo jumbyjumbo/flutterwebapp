@@ -30,8 +30,8 @@ class AboutZaxorelMarquee extends StatelessWidget {
       decoration: BoxDecoration(
           color: color,
           border: BorderDirectional(
-              bottom: BorderSide(color: primaryColor, width: 4),
-              top: BorderSide(color: primaryColor, width: 4))),
+            bottom: BorderSide(color: primaryColor, width: 4),
+          )),
       width: width,
       height: height,
       child: Marquee(

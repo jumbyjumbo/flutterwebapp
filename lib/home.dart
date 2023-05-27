@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:website/widgets/floatingmenu.dart';
 import 'package:website/widgets/mainscreen.dart';
 import 'utilities/colors.dart';
+import 'utilities/navigation.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
 import 'utilities/pageoptions.dart';
 import 'widgets/sidemenu.dart';
@@ -18,34 +20,21 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   // main screen ScrollController
   final ScrollController _mainScreenScrollController = ScrollController();
+
   // source ScrollController
   final ScrollController _sourceScrollController = ScrollController();
 
   //get the list of menu options' widgets
   final List<Widget> pageOptions = getPageOptions();
 
-  //select the tapped button's index
-  int _selectedIndex = 0;
-  int _previousIndex = 999;
-  void _handleMenuSelection(int index) {
-    setState(() {
-      if (index < pageOptions.length) {
-        _previousIndex = _selectedIndex;
-        _selectedIndex = index;
-        _mainScreenScrollController.animateTo(
-          0.0,
-          curve: Curves.easeInOut,
-          duration: const Duration(milliseconds: 100),
-        );
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     //get screen size for responsive design
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
+    //navigation history
+    var navigationModel = Provider.of<NavigationModel>(context, listen: true);
 
     //app structure
     return Scaffold(
@@ -70,17 +59,23 @@ class _HomeState extends State<Home> {
             //website title widget
             SliverList(
                 delegate: SliverChildListDelegate([
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    "Zax0rl.arxiv",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "bubble",
-                      color: primaryColor,
-                      //fontSize: ,
+              Container(
+                decoration: BoxDecoration(
+                    border: BorderDirectional(
+                  bottom: BorderSide(color: primaryColor, width: 4),
+                )),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      "Zax0rl.arxiv",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "bubble",
+                        color: primaryColor,
+                        //fontSize: ,
+                      ),
                     ),
                   ),
                 ),
@@ -110,7 +105,7 @@ class _HomeState extends State<Home> {
                         children: [
                           //side menu
                           SideMenu(
-                            onMenuPressed: _handleMenuSelection,
+                            onMenuPressed: navigationModel.navigateTo,
                             screenHeight: screenHeight,
                           ),
                           //main display
@@ -118,7 +113,7 @@ class _HomeState extends State<Home> {
                             screenHeight: screenHeight,
                             screenWidth: screenWidth,
                             scrollController: _mainScreenScrollController,
-                            child: pageOptions[_selectedIndex],
+                            child: pageOptions[navigationModel.currentIndex],
                           ),
                         ],
                       ),

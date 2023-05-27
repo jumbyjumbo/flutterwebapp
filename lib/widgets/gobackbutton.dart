@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:website/utilities/colors.dart';
-import 'package:website/widgets/neuebutton.dart';
+import 'package:provider/provider.dart';
+import '../utilities/navigation.dart';
+import 'neuebutton.dart';
 
-class PreviousPageButton extends StatefulWidget {
-  const PreviousPageButton({
+class GoBackButton extends StatelessWidget {
+  const GoBackButton({
     super.key,
   });
 
   @override
-  State<PreviousPageButton> createState() => _PreviousPageButtonState();
-}
-
-class _PreviousPageButtonState extends State<PreviousPageButton> {
-  @override
   Widget build(BuildContext context) {
+    var navigationModel = Provider.of<NavigationModel>(context, listen: false);
+
     return NeueButton(
       shadowBoxPreset: ShadowBoxPreset.topLeft,
       borderRadius: const BorderRadius.all(Radius.circular(15)),
-      onTap: () {
-        ;
-      },
+      onTap: navigationModel.navigateBack,
       child: const FittedBox(
         alignment: Alignment.center,
         child: Icon(

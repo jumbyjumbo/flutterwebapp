@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-//import 'footer.dart';
-
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen(
       {super.key,
       required this.child,
@@ -15,38 +13,22 @@ class MainScreen extends StatefulWidget {
   final ScrollController scrollController;
 
   @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  //child widget to be displayed
-  late Widget _child;
-  @override
-  void initState() {
-    super.initState();
-    _child = widget.child;
-  }
-
-  void updateChild(Widget newChild) {
-    setState(() {
-      _child = newChild;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: widget.screenWidth - widget.screenHeight / 10,
+      width: screenWidth - screenHeight / 10,
+
       //hide scrollbar
       child: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        behavior: ScrollConfiguration.of(context).copyWith(
+          scrollbars: false,
+        ),
 
         //scrollable column
         child: SingleChildScrollView(
-          controller: widget.scrollController,
+          controller: scrollController,
           child: Column(
             children: [
-              _child,
+              child,
               //footer of main screen
             ],
           ),

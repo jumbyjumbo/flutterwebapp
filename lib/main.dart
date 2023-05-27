@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'utilities/colors.dart';
 import 'home.dart';
+import 'package:provider/provider.dart';
+import 'utilities/navigation.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => NavigationModel(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-          fontFamily: 'PPNeueBit',
+          fontFamily: 'bit',
           scaffoldBackgroundColor: backgroundColor,
           primaryColor: primaryColor),
       home: const Home(),
