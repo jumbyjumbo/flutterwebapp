@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:website/utilities/colors.dart';
 
 //shadow box presets
 enum ShadowBoxPreset {
@@ -93,16 +92,16 @@ class _NeueButtonState extends State<NeueButton> {
 
           //color and border shape
           decoration: BoxDecoration(
-            color: widget.color ?? backgroundColor,
+            color: widget.color ?? Theme.of(context).scaffoldBackgroundColor,
             borderRadius: widget.borderRadius,
             border: Border.all(
-              color: primaryColor,
+              color: Theme.of(context).primaryColor,
               width: 2.5,
             ),
             boxShadow: isHovered || isPressed
                 ? [
                     BoxShadow(
-                      color: primaryColor,
+                      color: Theme.of(context).primaryColor,
                       spreadRadius: 0,
                       blurRadius: 0,
                       offset: isPressed ? const Offset(0, 0) : shadowOffset,

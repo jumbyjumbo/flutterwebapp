@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 
-class NavigationModel extends ChangeNotifier {
+import '../../pageoptions.dart';
+
+class NavProvider extends ChangeNotifier {
   final List<int> _backNavigationHistory = [];
   final List<int> _forwardNavigationHistory = [];
 
@@ -8,7 +10,7 @@ class NavigationModel extends ChangeNotifier {
   int get currentIndex => _currentIndex;
 
   void navigateTo(int index) {
-    if (index >= 0 && index != _currentIndex) {
+    if (index != _currentIndex && index < getPageOptions().length) {
       _backNavigationHistory.add(_currentIndex);
       _currentIndex = index;
       _forwardNavigationHistory

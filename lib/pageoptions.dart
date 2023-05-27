@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:website/widgets/manifesto.dart';
-
-import '../widgets/chat.dart';
+import 'package:website/widgets/options/manifesto.dart';
+import 'widgets/options/chat.dart';
 
 // list of main screen widgets
-//in same order as their side menu button
 
 List<Widget> getPageOptions() {
   return <Widget>[

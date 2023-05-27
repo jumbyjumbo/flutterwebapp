@@ -24,11 +24,12 @@ class BackToTopButton extends StatelessWidget {
             );
           },
       //back to top icon
-      child: const Padding(
-        padding: EdgeInsets.all(12.0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
         child: FittedBox(
           child: Text("back to top",
               style: TextStyle(
+                color: Theme.of(context).primaryColor,
                 wordSpacing: -10,
                 fontWeight: FontWeight.bold,
                 fontFamily: "bubble",

@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:website/widgets/floatingmenu.dart';
 import 'package:website/widgets/mainscreen.dart';
-import 'utilities/colors.dart';
-import 'utilities/navigation.dart';
+import 'utilities/providers/navprovider.dart';
 import 'widgets/aboutzaxorelmarquee.dart';
-import 'utilities/pageoptions.dart';
+import 'pageoptions.dart';
 import 'widgets/sidemenu.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
+
+import 'widgets/topmaintitle.dart';
 
 //website homepage
 class Home extends StatefulWidget {
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     //navigation history
-    var navigationModel = Provider.of<NavigationModel>(context, listen: true);
+    var navProvider = Provider.of<NavProvider>(context, listen: true);
 
     //app structure
     return Scaffold(
@@ -59,33 +60,14 @@ class _HomeState extends State<Home> {
             //website title widget
             SliverList(
                 delegate: SliverChildListDelegate([
-              Container(
-                decoration: BoxDecoration(
-                    border: BorderDirectional(
-                  bottom: BorderSide(color: primaryColor, width: 4),
-                )),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text(
-                      "Zax0rl.arxiv",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "bubble",
-                        color: primaryColor,
-                        //fontSize: ,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              const TopMainTitle(),
             ])),
 
             //main content of website
             SliverStickyHeader(
               //make the marquee sticky
               header: AboutZaxorelMarquee(
+                textColor: Theme.of(context).primaryColor,
                 screenWidth: screenWidth,
                 screenHeight: screenHeight,
                 height: screenHeight * 0.07,
@@ -105,7 +87,7 @@ class _HomeState extends State<Home> {
                         children: [
                           //side menu
                           SideMenu(
-                            onMenuPressed: navigationModel.navigateTo,
+                            onMenuPressed: navProvider.navigateTo,
                             screenHeight: screenHeight,
                           ),
                           //main display
@@ -113,7 +95,7 @@ class _HomeState extends State<Home> {
                             screenHeight: screenHeight,
                             screenWidth: screenWidth,
                             scrollController: _mainScreenScrollController,
-                            child: pageOptions[navigationModel.currentIndex],
+                            child: pageOptions[navProvider.currentIndex],
                           ),
                         ],
                       ),

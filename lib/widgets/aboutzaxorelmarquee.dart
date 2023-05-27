@@ -1,6 +1,5 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
-import '../utilities/colors.dart';
 import '../utilities/calcage.dart';
 
 class AboutZaxorelMarquee extends StatelessWidget {
@@ -12,6 +11,7 @@ class AboutZaxorelMarquee extends StatelessWidget {
     required this.width,
     this.fontSize = 50,
     this.color,
+    this.textColor,
   });
 
   final double height;
@@ -20,6 +20,7 @@ class AboutZaxorelMarquee extends StatelessWidget {
   final double screenHeight;
   final double fontSize;
   final Color? color;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +31,14 @@ class AboutZaxorelMarquee extends StatelessWidget {
       decoration: BoxDecoration(
           color: color,
           border: BorderDirectional(
-            bottom: BorderSide(color: primaryColor, width: 4),
+            bottom: BorderSide(color: Theme.of(context).primaryColor, width: 4),
           )),
       width: width,
       height: height,
       child: Marquee(
         startPadding: screenWidth,
         style: TextStyle(
+          color: textColor,
           fontWeight: FontWeight.bold,
           fontFamily: "bit",
           fontSize: fontSize,

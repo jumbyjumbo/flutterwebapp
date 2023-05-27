@@ -1,6 +1,4 @@
-import 'package:flutter/widgets.dart';
-
-import '../utilities/colors.dart';
+import 'package:flutter/material.dart';
 
 class Manifesto extends StatelessWidget {
   const Manifesto({
@@ -16,11 +14,12 @@ class Manifesto extends StatelessWidget {
       child: Column(
         children: [
           //title
-          const SizedBox(
+          SizedBox(
             width: double.infinity,
             child: FittedBox(
               child: Text('"テクノロジー & イノベーション"',
                   style: TextStyle(
+                      color: Theme.of(context).primaryColor,
                       letterSpacing: 0,
                       fontFamily: 'mondwest',
                       fontWeight: FontWeight.bold)),
@@ -36,7 +35,7 @@ class Manifesto extends StatelessWidget {
                 fontSize: MediaQuery.of(context).size.width > 600
                     ? paragraphSize
                     : paragraphSize * 0.75,
-                color: primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
               children: <TextSpan>[
                 //H1

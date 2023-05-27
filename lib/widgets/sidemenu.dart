@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utilities/colors.dart';
-import 'neuebutton.dart';
+import 'buttons/neuebutton.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -17,7 +16,8 @@ class SideMenu extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: BorderDirectional(
-              end: BorderSide(color: primaryColor, width: 4))),
+              end:
+                  BorderSide(color: Theme.of(context).primaryColor, width: 4))),
       width: screenHeight / 10,
       child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -41,8 +41,10 @@ class SideMenu extends StatelessWidget {
                     child: Text(
                       textAlign: TextAlign.center,
                       '$index',
-                      style: const TextStyle(
-                          fontFamily: "bit", fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontFamily: "bit",
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColor),
                     ),
                   ),
                 ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:website/utilities/colors.dart';
-import 'package:website/widgets/neuebutton.dart';
+import 'package:website/widgets/buttons/neuebutton.dart';
 
 class LinktreeButton extends StatefulWidget {
   const LinktreeButton({
@@ -21,10 +20,13 @@ class _LinktreeButtonState extends State<LinktreeButton> {
       onTap: () {
         launchUrl(Uri.parse('https://linktr.ee/zaksorel'));
       },
-      child: const FittedBox(
-        alignment: Alignment.center,
-        child: Icon(
-          Icons.north_east_rounded,
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: FittedBox(
+          alignment: Alignment.center,
+          child: Icon(
+            Icons.hub_rounded,
+          ),
         ),
       ),
     );

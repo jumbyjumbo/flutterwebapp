@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:website/widgets/linktreebutton.dart';
-import 'backtotopbutton.dart';
-import 'gobackbutton.dart';
-import 'gonextbutton.dart';
+import 'package:website/widgets/buttons/linktreebutton.dart';
+import 'buttons/backtotopbutton.dart';
+import 'buttons/gobackbutton.dart';
+import 'buttons/gonextbutton.dart';
+import 'buttons/togglethemebutton.dart';
 
 class FloatingMenu extends StatelessWidget {
   const FloatingMenu({
@@ -28,8 +29,7 @@ class FloatingMenu extends StatelessWidget {
         children: [
           const SizedBox(width: 30),
           //go back button
-          const GoBackButton(),
-          const Spacer(),
+
           //back to top button
           SizedBox(
             width: 180,
@@ -39,12 +39,16 @@ class FloatingMenu extends StatelessWidget {
                 scrollController: scrollController),
           ),
           const Spacer(),
-
+          //go back button
+          const GoBackButton(),
+          const SizedBox(width: 15),
           //go next button
           const GoNextButton(),
           const SizedBox(width: 30),
           //linktree button
           const LinktreeButton(),
+          const SizedBox(width: 30),
+          const ToggleThemeButton(),
         ],
       ),
     );
