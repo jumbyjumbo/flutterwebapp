@@ -12,7 +12,7 @@ class ToggleThemeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NeueButton(
-      shadowBoxPreset: ShadowBoxPreset.topLeft,
+      shadowBoxPreset: ShadowBoxPreset.topRight,
       borderRadius: const BorderRadius.all(Radius.circular(15)),
       onTap: () {
         Provider.of<ThemeProvider>(context, listen: false).toggleTheme();

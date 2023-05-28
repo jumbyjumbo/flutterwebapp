@@ -15,7 +15,7 @@ class _LinktreeButtonState extends State<LinktreeButton> {
   @override
   Widget build(BuildContext context) {
     return NeueButton(
-      shadowBoxPreset: ShadowBoxPreset.topRight,
+      shadowBoxPreset: ShadowBoxPreset.top,
       borderRadius: const BorderRadius.all(Radius.circular(15)),
       onTap: () {
         launchUrl(Uri.parse('https://linktr.ee/zaksorel'));

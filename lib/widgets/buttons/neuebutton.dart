@@ -112,7 +112,7 @@ class _NeueButtonState extends State<NeueButton> {
           transform: isPressed
               ? Matrix4.identity()
               : (isHovered ? hoverTransform : Matrix4.identity()),
-          duration: const Duration(milliseconds: 80),
+          duration: const Duration(milliseconds: 50),
           child: widget.child,
         ),
       ),

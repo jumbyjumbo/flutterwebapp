@@ -13,7 +13,7 @@ class GoNextButton extends StatelessWidget {
     var navProvider = Provider.of<NavProvider>(context, listen: false);
 
     return NeueButton(
-      shadowBoxPreset: ShadowBoxPreset.topLeft,
+      shadowBoxPreset: ShadowBoxPreset.topRight,
       borderRadius: const BorderRadius.all(Radius.circular(15)),
       onTap: navProvider.navigateNext,
       child: const FittedBox(
